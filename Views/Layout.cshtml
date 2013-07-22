@@ -1,0 +1,114 @@
+﻿@model dynamic
+@using Orchard.Security;
+@using Orchard.DisplayManagement.Descriptors;
+@using Orchard.UI.Resources;
+@using Orchard;
+@using Orchard.ContentManagement;
+
+@{
+    SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
+    Style.Include("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800");
+    Style.Include("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic");
+    Style.Include("bootstrap.min.css");
+    Style.Include("bootstrap-responsive.min.css");
+    Style.Include("bootstrap-overrides.css");
+    Style.Include("font-awesome.min.css");
+    Style.Include("font-awesome-ie7.min.css").UseCondition("IE 7");
+    Style.Include("layout.css"); //main stylesheet from the template
+    Style.Include("elements.css"); //additional stylesheet from the template-remove when we've matched up elements
+    Style.Include("icons.css"); //additional stylesheet for image icons from the template
+    Style.Include("template.css"); //additional page specific stylesheet settings from the template-remove when we've matched up elements
+    Style.Include("theme.css"); //orchard specific styling adjustments
+    Script.Require("jQuery").AtHead();
+    Script.Require("ShapesBase");
+    Script.Include("bootstrap.min.js");
+    Script.Include("custom.js"); //theme specific script file
+    Script.Include("admin.js"); //orchard provided script file-merge these settings into custom at some point
+    Script.Include("http://html5shim.googlecode.com/svn/trunk/html5.js").UseCondition("lt IE 9").AtHead();
+
+    /* Some useful shortcuts or settings
+    ***************************************************************/
+
+    Func<dynamic, dynamic> Zone = x => Display(x); // Zone as an alias for Display to help make it obvious when we're displaying zones
+
+    /* Inserting some ad hoc shapes
+    ***************************************************************/
+
+    // these are just hacked together to fire existing partials... can change
+    Model.Header.Add(Display.Branding());
+    Model.Header.Add(Display.User(CurrentUser: WorkContext.CurrentUser));
+    Model.Footer.Add(Display.OrchardVersion());
+
+    if (Model.Title != null) {
+        Model.BeforeContent.Add(Display.Title(Title: Model.Title));
+    }
+}
+
+<!-- navbar -->
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        @if (Model.Header != null) {
+            @Zone(Model.Header)
+        }
+    </div>
+</div>
+<!-- end navbar -->
+
+<!-- sidebar -->
+@if (Model.Navigation != null) {
+    <div id="sidebar-nav">
+        @Zone(Model.Navigation)
+    </div>
+}
+<!-- end sidebar -->
+
+<!-- main container -->
+<div class="content">
+    <div class="container-fluid">
+        @if (Model.Messages != null) {
+            <div id="messages">
+                @Zone(Model.Messages)
+            </div>
+        }
+
+        @if (Model.BeforeContent != null) {
+            <div id="before-content">
+                @Zone(Model.BeforeContent)
+            </div>
+        }
+
+        @if (Model.LocalNavigation != null) {
+            <div id="local-navigation">
+                @Zone(Model.LocalNavigation)
+            </div>
+        }
+
+        @if (Model.Content != null) {
+            <div id="content" class="well">
+                @Zone(Model.Content)
+            </div>
+        }
+
+        @if (Model.AfterContent != null) {
+            <div id="after-content">
+                @Zone(Model.AfterContent)
+            </div>
+        }
+    </div>
+</div>
+<!-- end main container -->
+
+<!-- footer -->
+@if (Model.Footer != null) {
+    <div class="container-fluid">
+        <div id="footer">
+            @Zone(Model.Footer)
+        </div>
+    </div>
+}
+<!-- end footer -->

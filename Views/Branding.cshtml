@@ -1,0 +1,9 @@
+﻿@using Orchard.Environment.Configuration
+@model dynamic
+
+@{
+    var urlPrefix = WorkContext.Resolve<ShellSettings>().RequestUrlPrefix;
+}
+
+<a class="brand" href="~/@urlPrefix">
+    <img src="/Themes/Raptor.DetailAdmin/Content/logo.png"></a>

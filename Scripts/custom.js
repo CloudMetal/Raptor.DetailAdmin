@@ -25,7 +25,7 @@ $(function () {
             }, options);
             _this.each(function (index, element) {
                 var controller = $(element);
-                var glyph = $("<i class=\"icon-chevron-down\"></i>");
+                var glyph = $("<i class=\"icon-chevron-right\"></i>");
 
                 glyph.data("controllees", getControllees(controller));
 
@@ -53,18 +53,20 @@ $(function () {
                     if (__this.hasClass("closed") || __this.hasClass("closing")) {
                         __this.data("controllees").slideDown(300, function () { __this.removeClass("opening").removeClass("closed").addClass("open"); });
                         __this.addClass("opening");
+                        __this.removeClass("icon-chevron-right").addClass("icon-chevron-down");
                         __this.closest('a').css('border-bottom', '0px').css('box-shadow', 'none');
                     }
                     else {
                         __this.data("controllees").slideUp(300, function () { __this.removeClass("closing").removeClass("open").addClass("closed"); });
                         __this.addClass("closing");
+                        __this.removeClass("icon-chevron-down").addClass("icon-chevron-right");
                         __this.closest('a').css('border-bottom', '1px solid #dae1e8').css('box-shadow', '0 2px 1px -1px #FFFFFF');
                     }
 
                     return false;
                 });
 
-                controller.append(glyph);
+                controller.prepend(glyph);
             });
 
             return this;

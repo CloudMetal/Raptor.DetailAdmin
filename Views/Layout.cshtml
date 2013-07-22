@@ -23,11 +23,13 @@
     Style.Include("theme.css"); //orchard specific styling adjustments
 
     Style.Include("select2.css");
+    Style.Include("uniform.default.min.css");
     
     Script.Require("jQuery").AtHead();
     Script.Require("ShapesBase");
     Script.Include("bootstrap.min.js");
     Script.Include("select2.min.js");
+    Script.Include("jquery.uniform.min.js");
     Script.Include("custom.js"); //theme specific script file
     Script.Include("http://html5shim.googlecode.com/svn/trunk/html5.js").UseCondition("lt IE 9").AtHead();
 

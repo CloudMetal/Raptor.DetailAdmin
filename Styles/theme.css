@@ -25,6 +25,9 @@
 /* adjust position of dashboard menu pointer */
 #dashboard-menu .pointer { top: 10px; }
 
+/* duplicating style for right arrow */
+#dashboard-menu a i.icon-chevron-right { position: relative; float: right; top: 5px; font-size: 11px; color: rgb(104, 104, 104); width: initial; height: initial; }
+
 
 /* Lists
 ----------------------------------------------------------*/
@@ -98,23 +101,48 @@ select { width: auto; }
 
 /* input text styles */
 .bulk-actions input[type="text"] { margin-bottom: 0; }
+#main input.large.text,
+#main textarea { width: 98%; }
 
 /* input hint styles */
 input[type="text"] + .hint { margin-top: -10px; }
 .hint:last-of-type { margin-bottom: 10px; }
-.hint { display: block; font-size: 0.923em; color: #7c7c7c; }
-
-/*
-textarea, input.text, input.textMedium, input.text-small, input.text-box { font-family: inherit; padding: 3px; border: 1px solid #bdbcbc; font-family: inherit; font-size: inherit; }
-textarea:focus, input.text:focus, input.text-box:focus, input.text-small:focus, input.textMedium:focus { border-color: #666d51; }
-*/
+.hint { display: block; font-size: 11px; color: #7c7c7c; }
 
 
 /* Labels
 ----------------------------------------------------------*/
-/* change heading size on bulk items */
-.contentItems h3 { font-size: 1.231em; display: inline }
+/* change heading size */
+.contentItems h3 { display: inline; }
+h1 { font-size: 23px; }
+h2 { font-size: 17px; }
+h3 { font-size: 16px; }
+h4 { font-size: 15px; }
+h5 { font-size: 14px; }
+h6 { font-size: 13px; }
 label.required:after { margin-left: 1ex; content: "*"; color: red; }
+
+
+/* Icons
+----------------------------------------------------------*/
+.manage-type i { font-size: 12px; position: absolute; left: 20px; margin-top: 5px; cursor: pointer; }
+
+
+/* Table Item Lists
+----------------------------------------------------------*/
+table.items { margin: 0 0 1.4em 0; background: #fff; border: 1px solid #eaeaea; border-bottom: none; border-collapse: separate; border-spacing: 0; width: 100%; }
+table.items caption { padding: 8px 0; text-indent: 0; }
+table.items col { border-spacing: 0; display: table-column; }
+table.items colgroup { border-spacing: 0; display: table-column-group; }
+table.items tbody { border-spacing: 0; vertical-align: middle; }
+table.items thead, table.items th { background: #f7f7f9; overflow: hidden; text-align: left; white-space: nowrap; }
+table.items th.actions { width: 300px; text-align: right; }
+table.items th.checkbox { width: 50px; }
+table.items tr.critical { background: #f2dede; border: inherit; border-color: #eed3d7; }
+table.items tr.warning { background: #fcf8e3; border: inherit; border-color: #fbeed5; }
+table.items th, table.items td { border-bottom: 1px solid #eaeaea; border-spacing: 0px; display: table-cell; padding: 8px 12px; }
+table.items td .add { float: right; }
+table.items tr.internal * { background-color: #eee; color: grey; }
 
 
 /* Content Item Lists
@@ -131,6 +159,8 @@ table.items tr:nth-child(even) { background-color: #f9f9f9; }
 #main .contentItems > ul > li:hover,
 ul.contentItems > li:hover,
 table.items tr:hover { background-color: #f5fafc; }
+
+
 
 
 
@@ -172,7 +202,7 @@ input.textMedium { width: 26em; }
 input.large.text, textarea, fieldset { clear: both; }
 
 textarea { min-height: 8em; }
-#main input.large.text, #main textarea { width: 99%; }
+
 #main .primary input.large.text, #main .primary textarea { margin: 0; padding: 4px; width: 98.8%; }
 /* todo: (heskew) move editor specific style elsewhere */
 .primary .mceEditor { display: block; margin: 0; }

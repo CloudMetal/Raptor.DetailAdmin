@@ -1,6 +1,8 @@
 ﻿// sidebar arrow injection
 $(function () {
     $('#dashboard-menu > li.active > a').append('<div class="pointer"><div class="arrow"></div><div class="arrow_border"></div></div>');
+
+    $('select').select2();
 });
 
 // add arrow and dropdown functionality to side menu items with children-WOULD LIKE TO REWRITE THIS USING BOOTSTRAP DROPDOWN

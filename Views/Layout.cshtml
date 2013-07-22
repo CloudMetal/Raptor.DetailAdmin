@@ -9,19 +9,25 @@
     SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
     Style.Include("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800");
     Style.Include("http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic");
+    
     Style.Include("bootstrap.min.css");
     Style.Include("bootstrap-responsive.min.css");
     Style.Include("bootstrap-overrides.css");
     Style.Include("font-awesome.min.css");
     Style.Include("font-awesome-ie7.min.css").UseCondition("IE 7");
+    
     Style.Include("layout.css"); //main stylesheet from the template
     Style.Include("elements.css"); //additional stylesheet from the template-remove when we've matched up elements
     Style.Include("icons.css"); //additional stylesheet for image icons from the template
     Style.Include("template.css"); //additional page specific stylesheet settings from the template-remove when we've matched up elements
     Style.Include("theme.css"); //orchard specific styling adjustments
+
+    Style.Include("select2.css");
+    
     Script.Require("jQuery").AtHead();
     Script.Require("ShapesBase");
     Script.Include("bootstrap.min.js");
+    Script.Include("select2.min.js");
     Script.Include("custom.js"); //theme specific script file
     Script.Include("http://html5shim.googlecode.com/svn/trunk/html5.js").UseCondition("lt IE 9").AtHead();
 

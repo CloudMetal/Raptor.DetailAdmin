@@ -17,7 +17,6 @@
     Style.Include("font-awesome-ie7.min.css").UseCondition("IE 7");
     
     Style.Include("layout.css"); //main stylesheet from the template
-    Style.Include("elements.css"); //additional stylesheet from the template-remove when we've matched up elements
     Style.Include("icons.css"); //additional stylesheet for image icons from the template
     Style.Include("template.css"); //additional page specific stylesheet settings from the template-remove when we've matched up elements
     Style.Include("theme.css"); //orchard specific styling adjustments
@@ -30,9 +29,9 @@
     Script.Require("jQuery").AtHead();
     Script.Require("ShapesBase");
     Script.Include("bootstrap.min.js");
-    Script.Include("backbone-min.js");
-    Script.Include("backbone.marionette.min.js");
-    Script.Include("require.js");
+    //Script.Include("backbone-min.js");
+    //Script.Include("backbone.marionette.min.js");
+    //Script.Include("require.js");
     Script.Include("kendo.dataviz.min.js");
     Script.Include("select2.min.js");
     Script.Include("jquery.uniform.min.js");

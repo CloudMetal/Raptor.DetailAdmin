@@ -74,14 +74,6 @@
     <Content Include="Content\fonts\font-awesome\fontawesome-webfont.svg" />
     <Content Include="Content\glyphicons-halflings-white.png" />
     <Content Include="Content\glyphicons-halflings.png" />
-    <Content Include="Content\ico-arrow-black.png" />
-    <Content Include="Content\ico-gallery-edit.png" />
-    <Content Include="Content\ico-gallery-trash.png" />
-    <Content Include="Content\ico-mail.png" />
-    <Content Include="Content\ico-phone.png" />
-    <Content Include="Content\ico-table-delete.png" />
-    <Content Include="Content\ico-table-edit.png" />
-    <Content Include="Content\ico-table-new.png" />
     <Content Include="Content\jquery-ui\slider-handler.png" />
     <Content Include="Content\jquery-ui\slider-handler2.png" />
     <Content Include="Content\lens.png" />
@@ -105,10 +97,8 @@
     <Content Include="Styles\bootstrap-overrides.css" />
     <Content Include="Styles\bootstrap-responsive.min.css" />
     <Content Include="Styles\bootstrap.min.css" />
-    <Content Include="Styles\elements.css" />
     <Content Include="Styles\font-awesome-ie7.min.css" />
     <Content Include="Styles\font-awesome.min.css" />
-    <Content Include="Styles\icons.css" />
     <Content Include="Styles\kendo.dataviz.black.min.css" />
     <Content Include="Styles\kendo.dataviz.blueopal.min.css" />
     <Content Include="Styles\kendo.dataviz.bootstrap.min.css" />
@@ -123,8 +113,6 @@
     <Content Include="Styles\kendo.dataviz.uniform.min.css" />
     <Content Include="Styles\layout.css" />
     <Content Include="Styles\select2.css" />
-    <Content Include="Styles\site.css" />
-    <Content Include="Styles\template.css" />
     <Content Include="Styles\theme.css" />
     <Content Include="Styles\uniform.default.min.css" />
     <Content Include="Web.config" />

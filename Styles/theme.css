@@ -12,6 +12,9 @@
 /* decrease padding on content wells */
 .content well { padding: 10px; }
 
+/* bootstrap container class is overriding Orchard local with a responsive width. have to set max */
+.sections > .primary > .container { max-width: 600px; margin-left: inherit; }
+
 
 /* Side Menu
 ----------------------------------------------------------*/
@@ -45,10 +48,13 @@ a.button { display: inline-block; margin: 0; line-height: 15px; vertical-align: 
 button:hover,
 .button:hover,
 a.button:hover { text-decoration: none; opacity: 0.87; color: #fff; }
+button,
+.button,
+a.button { padding: 5px 14px; }
 .button,
 a.button { padding: 5px 14px; }
 button,
-input.button { padding: 3px 14px; }
+input.button,
 x:-moz-any-link { padding: 3px 14px; }
 button [class^="icon-"],
 button [class*=" icon-"],
@@ -77,6 +83,14 @@ button.remove,
 button.remove:active,
 .remove.button:active { background: #6e354a; }
 
+/* button alignment on forms */
+fieldset.publish-button,
+fieldset.delete-button,
+fieldset.save-button { clear: none; float: left; }
+fieldset.save-button { clear: left; }
+fieldset.publish-button { margin: 0 12px 0 0; padding: 0 12px; border-right: 1px solid #ccc; }
+fieldset.delete-button { margin: 0 0 0 12px; }
+
 /* adjust position of delete button-LOOK FOR EXAMPLE */
 .delete.button { float: right; }
 
@@ -97,23 +111,25 @@ legend { font-size: 17.5px; color: #696d73; font-style: italic; }
 select { width: auto; }
 
 /* checkbox styles */
-.checker { vertical-align: top !important; }
+.checker { vertical-align: top !important; margin-right: 0 !important; }
 
 /* input text styles */
-.bulk-actions input[type="text"] { margin-bottom: 0; }
+.bulk-actions input[type="text"],
+fieldset.publish-later-datetime input { margin-bottom: 0; }
 #main input.large.text,
+/* text area styles */
 #main textarea { width: 98%; }
 
 /* input hint styles */
-input[type="text"] + .hint { margin-top: -10px; }
+input[type="text"] + .hint,
+.permalink .hint { margin-top: -10px; }
 .hint:last-of-type { margin-bottom: 10px; }
 .hint { display: block; font-size: 11px; color: #7c7c7c; }
 
 
-/* Labels
+/* Headings
 ----------------------------------------------------------*/
 /* change heading size */
-.contentItems h3 { display: inline; }
 h1 { font-size: 23px; }
 h2 { font-size: 17px; }
 h3 { font-size: 16px; }
@@ -121,6 +137,15 @@ h4 { font-size: 15px; }
 h5 { font-size: 14px; }
 h6 { font-size: 13px; }
 
+/* display contentItem headings inline */
+.contentItems h3 { display: inline; }
+
+/* add bottom margin to content h1 */
+#main #content h1 { margin: 0 0 23px; }
+
+
+/* Labels
+----------------------------------------------------------*/
 /* add required asterick */
 label.required:after { margin-left: 1ex; content: "*"; color: red; }
 
@@ -129,6 +154,11 @@ label.required:after { margin-left: 1ex; content: "*"; color: red; }
 ----------------------------------------------------------*/
 .manage-type i,
 .manage-part i { font-size: 12px; position: absolute; left: 20px; margin-top: 5px; cursor: pointer; }
+
+
+/* Images
+----------------------------------------------------------*/
+.edit-item .thumbnail { display: inherit; }
 
 
 /* Table Item Lists
@@ -183,8 +213,9 @@ table.items tr:hover { background-color: #f5fafc; }
 #main-stats .stat .date { position: relative; right: 0; }
 
 
-
-
+/* Generic
+----------------------------------------------------------*/
+.clearBoth { clear: both; }
 
 
 
@@ -288,7 +319,3 @@ button.link { background: none; border: 0; padding: inherit; text-shadow: none; 
 .contentItems .properties .icon { margin: 0 .2em -.2em; }
 .contentItems .related { text-align: right; }
 .contentItems .comment-count { line-height: 2em; }
-
-
-
-

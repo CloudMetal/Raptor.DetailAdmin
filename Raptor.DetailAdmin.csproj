@@ -45,6 +45,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\..\..\..\lib\kendoui\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -84,10 +87,21 @@
     <Content Include="Content\lens.png" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\select-bg.png" />
+    <Content Include="Content\select2\select2-spinner.gif" />
+    <Content Include="Content\select2\select2.png" />
+    <Content Include="Content\select2\select2x2.png" />
     <Content Include="Content\skin-nav-bullets.png" />
-    <Content Include="Scripts\admin.js" />
+    <Content Include="Content\uniform\bg-input-focus.png" />
+    <Content Include="Content\uniform\bg-input.png" />
+    <Content Include="Content\uniform\sprite.png" />
+    <Content Include="Scripts\backbone-min.js" />
+    <Content Include="Scripts\backbone.marionette.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\jquery.uniform.min.js" />
+    <Content Include="Scripts\kendo.dataviz.min.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Styles\bootstrap-overrides.css" />
     <Content Include="Styles\bootstrap-responsive.min.css" />
     <Content Include="Styles\bootstrap.min.css" />
@@ -95,10 +109,24 @@
     <Content Include="Styles\font-awesome-ie7.min.css" />
     <Content Include="Styles\font-awesome.min.css" />
     <Content Include="Styles\icons.css" />
+    <Content Include="Styles\kendo.dataviz.black.min.css" />
+    <Content Include="Styles\kendo.dataviz.blueopal.min.css" />
+    <Content Include="Styles\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Styles\kendo.dataviz.default.min.css" />
+    <Content Include="Styles\kendo.dataviz.flat.min.css" />
+    <Content Include="Styles\kendo.dataviz.highcontrast.min.css" />
+    <Content Include="Styles\kendo.dataviz.metro.min.css" />
+    <Content Include="Styles\kendo.dataviz.metroblack.min.css" />
+    <Content Include="Styles\kendo.dataviz.min.css" />
+    <Content Include="Styles\kendo.dataviz.moonlight.min.css" />
+    <Content Include="Styles\kendo.dataviz.silver.min.css" />
+    <Content Include="Styles\kendo.dataviz.uniform.min.css" />
     <Content Include="Styles\layout.css" />
+    <Content Include="Styles\select2.css" />
     <Content Include="Styles\site.css" />
     <Content Include="Styles\template.css" />
     <Content Include="Styles\theme.css" />
+    <Content Include="Styles\uniform.default.min.css" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\Web.config" />
@@ -162,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Dashboard\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DashboardAdvisory.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

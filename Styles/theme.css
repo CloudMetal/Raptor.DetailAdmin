@@ -120,12 +120,15 @@ h3 { font-size: 16px; }
 h4 { font-size: 15px; }
 h5 { font-size: 14px; }
 h6 { font-size: 13px; }
+
+/* add required asterick */
 label.required:after { margin-left: 1ex; content: "*"; color: red; }
 
 
 /* Icons
 ----------------------------------------------------------*/
-.manage-type i { font-size: 12px; position: absolute; left: 20px; margin-top: 5px; cursor: pointer; }
+.manage-type i,
+.manage-part i { font-size: 12px; position: absolute; left: 20px; margin-top: 5px; cursor: pointer; }
 
 
 /* Table Item Lists
@@ -159,6 +162,30 @@ table.items tr:nth-child(even) { background-color: #f9f9f9; }
 #main .contentItems > ul > li:hover,
 ul.contentItems > li:hover,
 table.items tr:hover { background-color: #f5fafc; }
+
+
+/* Dashboard
+----------------------------------------------------------*/
+/* remove background color of stats area */
+#main-stats { background-color: transparent; }
+
+/* change text alignment of stats area and remove top padding */
+#main-stats .stat { text-align: left; padding: 10px 0px 35px 0px; }
+
+/* add margin to elements in first span of stats area */
+.row-fluid [class*="span"]:first-child.stat .data { margin-left: 20px; }
+
+@media (min-width: 1200px) .row-fluid [class*="span"]:first-child.stat .data {
+    margin-left: 20px;
+}
+
+/* remove the absolute position on the date class */
+#main-stats .stat .date { position: relative; right: 0; }
+
+
+
+
+
 
 
 
@@ -264,20 +291,4 @@ button.link { background: none; border: 0; padding: inherit; text-shadow: none; 
 
 
 
-/* Dashboard
-----------------------------------------------------------*/
-/* remove background color of stats area */
-#main-stats { background-color: transparent; }
 
-/* change text alignment of stats area and remove top padding */
-#main-stats .stat { text-align: left; padding: 0px 0px 35px 0px; }
-
-/* add margin to elements in first span of stats area */
-.row-fluid [class*="span"]:first-child.stat .data { margin-left: 20px; }
-
-@media (min-width: 1200px) .row-fluid [class*="span"]:first-child.stat .data {
-    margin-left: 20px;
-}
-
-/* remove the absolute position on the date class */
-#main-stats .stat .date { position: relative; right: 0; }

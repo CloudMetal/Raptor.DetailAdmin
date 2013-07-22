@@ -22,12 +22,18 @@
     Style.Include("template.css"); //additional page specific stylesheet settings from the template-remove when we've matched up elements
     Style.Include("theme.css"); //orchard specific styling adjustments
 
+    Style.Include("kendo.dataviz.min.css");
+    Style.Include("kendo.dataviz.bootstrap.min.css");
     Style.Include("select2.css");
     Style.Include("uniform.default.min.css");
     
     Script.Require("jQuery").AtHead();
     Script.Require("ShapesBase");
     Script.Include("bootstrap.min.js");
+    Script.Include("backbone-min.js");
+    Script.Include("backbone.marionette.min.js");
+    Script.Include("require.js");
+    Script.Include("kendo.dataviz.min.js");
     Script.Include("select2.min.js");
     Script.Include("jquery.uniform.min.js");
     Script.Include("custom.js"); //theme specific script file

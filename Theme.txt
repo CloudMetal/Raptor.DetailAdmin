@@ -1,0 +1,6 @@
+Name: Raptor.DetailAdmin
+Author: Raptor Concepts
+Website: http://raptorconcepts.com
+Description: Detail Admin Theme is a clean and elegant responsive template suitable for any back-end application. Created using latest HTML5 and CSS3 features. Built with SASS and focused on simplicity and real life use cases.
+Version: 1.0
+Zones: Header, Messages, BeforeContent, LocalNavigation, Content, AfterContent, Footer

@@ -8,9 +8,20 @@ Quick start
 
 Changelog
 ---------
+* v1.0.0 - Initial release
 
 Versioning
 ----------
+
+Libraries
+---------
+* [Twitter Bootstrap](https://github.com/twitter/bootstrap) v2.3.1
+* [Backbone.js](https://github.com/jashkenas/backbone) v1.0.0
+* [Marionette js](https://github.com/marionettejs/backbone.marionette) v1.0.4
+* [RequireJS](https://github.com/jrburke/requirejs) v2.1.8
+* [KendoUI](http://www.kendoui.com/) v2013.2.716
+* [Select2](https://github.com/ivaynberg/select2) v3.4.1
+* [Uniform](https://github.com/pixelmatrix/uniform) v2.1.1
 
 Bug tracker
 -----------

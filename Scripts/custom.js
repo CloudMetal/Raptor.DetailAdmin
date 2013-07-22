@@ -5,7 +5,7 @@ $(function () {
     $('ul.localmenu > li.selected').addClass('active');
 
     $('select').select2();
-    $('input').uniform();
+    $('input[type="checkbox"], input[type="file"], input[type="radio"]').uniform();
 });
 
 // add arrow and dropdown functionality to side menu items with children-WOULD LIKE TO REWRITE THIS USING BOOTSTRAP DROPDOWN

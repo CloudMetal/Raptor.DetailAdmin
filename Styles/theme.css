@@ -235,21 +235,12 @@ table.items tr:hover { background-color: #f5fafc; }
 
 /* Dashboard
 ----------------------------------------------------------*/
-/* remove background color of stats area */
-#main-stats { background-color: transparent; }
-
-/* change text alignment of stats area and remove top padding */
-#main-stats .stat { text-align: left; padding: 10px 0px 35px 0px; }
-
 /* add margin to elements in first span of stats area */
 .row-fluid [class*="span"]:first-child.stat .data { margin-left: 20px; }
 
 @media (min-width: 1200px) .row-fluid [class*="span"]:first-child.stat .data {
     margin-left: 20px;
 }
-
-/* remove the absolute position on the date class */
-#main-stats .stat .date { position: relative; right: 0; }
 
 
 /* Generic

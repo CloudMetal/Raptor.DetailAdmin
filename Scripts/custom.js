@@ -12,6 +12,7 @@
 
     // uniform injection
     $('input[type="checkbox"], input[type="file"], input[type="radio"]').uniform();
+    $('.checker').parent('div').css('margin-bottom', '10px');
 
     // bootstrap alert injection
     $('.message-Information').addClass('alert alert-success');

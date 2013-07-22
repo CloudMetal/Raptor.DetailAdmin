@@ -1,11 +1,22 @@
-﻿// sidebar arrow injection
-$(function () {
+﻿$(function () {
+    // sidebar arrow injection
     $('#dashboard-menu > li.active > a').append('<div class="pointer"><div class="arrow"></div><div class="arrow_border"></div></div>');
-    $('ul.localmenu > li.first').parent('ul').addClass('nav nav-tabs');
-    $('ul.localmenu > li.selected').addClass('active');
 
-    $('select').select2();
+    // bootstrap tab injection
+    $('ul.localmenu > li.first').parent('ul').addClass('nav nav-tabs');
+
+    // select2 injection
+    $('select').select2({
+        width: 'element'
+    });
+
+    // uniform injection
     $('input[type="checkbox"], input[type="file"], input[type="radio"]').uniform();
+
+    // bootstrap alert injection
+    $('.message-Information').addClass('alert alert-success');
+    $('.message-Warning').addClass('alert');
+    $('.message-Error').addClass('alert alert-error');
 });
 
 // add arrow and dropdown functionality to side menu items with children-WOULD LIKE TO REWRITE THIS USING BOOTSTRAP DROPDOWN

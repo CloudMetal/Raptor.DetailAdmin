@@ -29,30 +29,50 @@
 /* Lists
 ----------------------------------------------------------*/
 /* set all list styles to none and remove margin */
-ol, ul { list-style: none; margin: 0; }
+ol,
+ul { list-style: none; margin: 0; }
 
 
 /* Buttons
 ----------------------------------------------------------*/
 /* common button style */
-button, .button, a.button { display: inline-block; margin: 0; line-height: 15px; vertical-align: middle; font-size: 12px; text-shadow: none; box-shadow: none; background-image: none; border: 0 none; color: #fff; font-weight: 500; border-radius: 4px; background: #4387bf; border: 1px solid rgb(56, 131, 192); cursor: pointer; padding: 7px 14px; -webkit-transition: all .1s linear; -moz-transition: all .1s linear; transition: all .1s linear; }
-button:hover, .button:hover, a.button:hover { text-decoration: none; opacity: 0.87; color: #fff; }
-.button, a.button { padding: 5px 14px; }
-button, input.button { padding: 3px 14px; }
+button,
+.button,
+a.button { display: inline-block; margin: 0; line-height: 15px; vertical-align: middle; font-size: 12px; text-shadow: none; box-shadow: none; background-image: none; border: 0 none; color: #fff; font-weight: 500; border-radius: 4px; background: #4387bf; border: 1px solid rgb(56, 131, 192); cursor: pointer; padding: 7px 14px; -webkit-transition: all .1s linear; -moz-transition: all .1s linear; transition: all .1s linear; }
+button:hover,
+.button:hover,
+a.button:hover { text-decoration: none; opacity: 0.87; color: #fff; }
+.button,
+a.button { padding: 5px 14px; }
+button,
+input.button { padding: 3px 14px; }
 x:-moz-any-link { padding: 3px 14px; }
-button [class^="icon-"], button [class*=" icon-"], .button [class^="icon-"], .button [class*=" icon-"], a.button [class^="icon-"], a.button [class*=" icon-"] { margin-right: 3px; }
+button [class^="icon-"],
+button [class*=" icon-"],
+.button [class^="icon-"],
+.button [class*=" icon-"],
+a.button [class^="icon-"],
+a.button [class*=" icon-"] { margin-right: 3px; }
 
 /* primary button style - maps to primary button of template */
-button, .button, a.button { background: #3b9ff3; border: 1px solid rgb(53, 150, 231); }
-button:active, .button:active, a.button:active { background: rgb(48, 98, 139); opacity: 1; }
+button,
+.button,
+a.button { background: #3b9ff3; border: 1px solid rgb(53, 150, 231); }
+button:active,
+.button:active,
+a.button:active { background: rgb(48, 98, 139); opacity: 1; }
 
 /* grey button style - maps to gray button of template */
 .button.grey { background: #7e91aa; border: 1px solid rgb(136, 142, 151); }
 .button.grey:active { background: rgb(93, 107, 126); color: rgb(243, 243, 243); }
 
 /* remove button style - maps to danger button of template */
-button.remove, .remove.button, .remove.button:link, .remove.button:visited { background: #b85e80; border-color: #b85e80; color: #fff; }
-button.remove:active, .remove.button:active { background: #6e354a; }
+button.remove,
+.remove.button,
+.remove.button:link,
+.remove.button:visited { background: #b85e80; border-color: #b85e80; color: #fff; }
+button.remove:active,
+.remove.button:active { background: #6e354a; }
 
 /* adjust position of delete button-LOOK FOR EXAMPLE */
 .delete.button { float: right; }
@@ -61,7 +81,8 @@ button.remove:active, .remove.button:active { background: #6e354a; }
 /* Forms
 ----------------------------------------------------------*/
 /* form styles */
-form.inline, form.inline fieldset { /* todo: (heskew) need something other than .inline ... */ display: inline; }
+form.inline,
+form.inline fieldset { display: inline; }
 form.inline fieldset { margin: 0; }
 fieldset { margin: 0 0 12px 0; }
 legend { font-size: 17.5px; color: #696d73; font-style: italic; }
@@ -73,7 +94,15 @@ legend { font-size: 17.5px; color: #696d73; font-style: italic; }
 select { width: auto; }
 
 /* checkbox styles */
-.bulk-items .checker { vertical-align: top; }
+.checker { vertical-align: top !important; }
+
+/* input text styles */
+.bulk-actions input[type="text"] { margin-bottom: 0; }
+
+/* input hint styles */
+input[type="text"] + .hint { margin-top: -10px; }
+.hint:last-of-type { margin-bottom: 10px; }
+.hint { display: block; font-size: 0.923em; color: #7c7c7c; }
 
 /*
 textarea, input.text, input.textMedium, input.text-small, input.text-box { font-family: inherit; padding: 3px; border: 1px solid #bdbcbc; font-family: inherit; font-size: inherit; }
@@ -84,7 +113,29 @@ textarea:focus, input.text:focus, input.text-box:focus, input.text-small:focus, 
 /* Labels
 ----------------------------------------------------------*/
 /* change heading size on bulk items */
-.bulk-items h3 { font-size: 1.231em; display: inline; }
+.contentItems h3 { font-size: 1.231em; display: inline }
+label.required:after { margin-left: 1ex; content: "*"; color: red; }
+
+
+/* Content Item Lists
+----------------------------------------------------------*/
+/* Alternating styles */
+#main .contentItems > ul > li:nth-child(odd),
+ul.contentItems > li:nth-child(odd),
+table.items tr:nth-child(odd) { background-color: #fff; }
+
+#main .contentItems > ul > li:nth-child(even),
+ul.contentItems > li:nth-child(even),
+table.items tr:nth-child(even) { background-color: #f9f9f9; }
+
+#main .contentItems > ul > li:hover,
+ul.contentItems > li:hover,
+table.items tr:hover { background-color: #f5fafc; }
+
+
+
+
+
 
 
 
@@ -93,11 +144,8 @@ textarea:focus, input.text:focus, input.text-box:focus, input.text-small:focus, 
 /* Forms
 ----------------------------------------------------------*/
 
-
-
-label { font-weight: normal; display: block; padding: 0 0 0.3em 0; }
 label.forcheckbox { margin: 0 0 0 .4em; display: inline; }
-label.required:after { margin-left: 1ex; content: "*"; color: red; }
+
 
 
 .bulk-actions { display: inline; height: auto; margin: 0 4px 0 0; padding: 0 0 0 0; }
@@ -107,19 +155,18 @@ label.sub { display: inline; }
 
 input[readonly] { background-color: #EBEBE4; color: #545454; }
 
-legend span { font-weight: normal; }
+
 
 label.bulk-order { text-transform: lowercase; }
 label span { font-weight: normal; }
 label input { vertical-align: text-top; }
-.hint { display: block; font-size: 0.923em; color: #7c7c7c; }
+
 /* todo: (heskew) try to get .text on stuff like .text-box */
 
-input.text, input.textMedium, input.text-box { line-height: 1.2em; }
+
 /*Are we using the two classes below?*/
 input.text-small { width: 4em; }
 input.textMedium { width: 26em; }
-select { padding: 1px; }
 
 
 input.large.text, textarea, fieldset { clear: both; }
@@ -185,19 +232,6 @@ button.link { background: none; border: 0; padding: inherit; text-shadow: none; 
 .contentItems .related { text-align: right; }
 .contentItems .comment-count { line-height: 2em; }
 
-
-/* Alternating styles */
-#main .contentItems > ul > li:nth-child(odd),
-ul.contentItems > li:nth-child(odd),
-table.items tr:nth-child(odd) { background-color: #fff; }
-
-#main .contentItems > ul > li:nth-child(even),
-ul.contentItems > li:nth-child(even),
-table.items tr:nth-child(even) { background-color: #f9f9f9; }
-
-#main .contentItems > ul > li:hover,
-ul.contentItems > li:hover,
-table.items tr:hover { background-color: #EDF9F5; }
 
 
 /* Dashboard

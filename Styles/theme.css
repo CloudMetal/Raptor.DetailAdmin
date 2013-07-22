@@ -1,4 +1,22 @@
-﻿/* Containers
+﻿/*
+    CSS SECTIONS    
+    
+    1. Containers (2)
+    2. Side Menu (3)
+    3. Lists (5)
+    4. Buttons (7)
+    5. Forms (6)
+    6. Headings (4)
+    7. Icons (11)
+    8. Images (10)
+    9. Table Items (8)
+    10. List Items (9)
+    11. Dashboard (12)
+    12. Generic (1)
+*/
+
+
+/* Containers
 ----------------------------------------------------------*/
 /* increase width of sidebar nav and move to top */
 #sidebar-nav { width: 240px; padding-top: 0; }
@@ -37,6 +55,14 @@
 /* set all list styles to none and remove margin */
 ol,
 ul { list-style: none; margin: 0; }
+.widgets-listed li li.widgets-this-layer:hover,
+#widgets-layer-visibility li:hover,
+.widgets-listed li:hover,
+.widgets-listed li.on,
+.widgets-listed li li.widgets-this-layer,
+#widgets-layer-visibility li.widgets-this-layer,
+#widgets-layer-visibility li.on { border-color: rgba(36, 43, 77, 0.8); }
+.widgets-listed li li.widgets-this-layer, #widgets-layer-visibility li.widgets-this-layer { background-color: #f5fafc; }
 
 
 /* Buttons
@@ -83,6 +109,10 @@ button.remove,
 button.remove:active,
 .remove.button:active { background: #6e354a; }
 
+/* button link style */
+button.link { color: #0088cc; background: none; border: 0; padding: inherit; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; filter: none; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; }
+button.link:hover { color: #005580; text-decoration: underline; }
+
 /* button alignment on forms */
 fieldset.publish-button,
 fieldset.delete-button,
@@ -102,7 +132,8 @@ form.inline,
 form.inline fieldset { display: inline; }
 form.inline fieldset { margin: 0; }
 fieldset { margin: 0 0 12px 0; }
-legend { font-size: 17.5px; color: #696d73; font-style: italic; }
+legend { font-size: 1.385em; color: #696d73; font-style: italic; }
+.widgets-listed li form { margin-bottom: 0; }
 
 /* label styles */
 .bulk-actions label { display: inline; vertical-align: middle; }
@@ -122,32 +153,32 @@ fieldset.publish-later-datetime input { margin-bottom: 0; }
 
 /* input hint styles */
 input[type="text"] + .hint,
-.permalink .hint { margin-top: -10px; }
-.hint:last-of-type { margin-bottom: 10px; }
-.hint { display: block; font-size: 11px; color: #7c7c7c; }
+.permalink .hint { margin-top: -0.769em; }
+.hint:last-of-type { margin-bottom: 0.769em; }
+.hint { display: block; font-size: 0.846em; color: #7c7c7c; }
+
+/* label add required asterick */
+label.required:after { margin-left: 1ex; content: "*"; color: red; }
 
 
 /* Headings
 ----------------------------------------------------------*/
 /* change heading size */
-h1 { font-size: 23px; }
-h2 { font-size: 17px; }
-h3 { font-size: 16px; }
-h4 { font-size: 15px; }
-h5 { font-size: 14px; }
-h6 { font-size: 13px; }
+h1 { font-size: 1.769em; }
+h2 { font-size: 1.308em; }
+h3 { font-size: 1.231em; }
+h4 { font-size: 1.154em; }
+h5 { font-size: 1.077em; }
+h6 { font-size: 1em; }
 
 /* display contentItem headings inline */
 .contentItems h3 { display: inline; }
 
 /* add bottom margin to content h1 */
-#main #content h1 { margin: 0 0 23px; }
+#main #content h1 { margin: 0 0 1.769em; }
 
-
-/* Labels
-----------------------------------------------------------*/
-/* add required asterick */
-label.required:after { margin-left: 1ex; content: "*"; color: red; }
+/* modify line height */
+.widgets-listed h2 { line-height: 2.4em; }
 
 
 /* Icons
@@ -272,7 +303,7 @@ textarea { min-height: 8em; }
 /*disabled*/
 .button.disabled, .button.disabled:visited, .button.disabled:hover, .button.disabled:active, .button.disabled:focus { background-color: #eee; border: 1px solid #ababab; color: #ababab; cursor: default; filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#ffeeeeee', endColorstr='#ffeeeeee'); background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(238, 238, 238, 1.0)), to(rgba(238, 238, 238, 1.0))); background: -moz-linear-gradient(top, rgba(238, 238, 238, 1.0), rgba(238, 238, 238, 1.0)); text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
 /* and allow all of that button style to be undone and beyond - to look like a link */
-button.link { background: none; border: 0; padding: inherit; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; filter: none; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; }
+
 .cancel { margin: 0 0 0 .93em; }
 .manage { float: right; margin-bottom: 16px; }
 .actions { clear: right; padding: 0; text-align: right; }

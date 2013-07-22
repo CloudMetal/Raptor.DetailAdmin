@@ -31,7 +31,7 @@
 #before-content { margin-top: 10px; }
 
 /* adjust position of main content area */
-.content { margin-left: 237px; min-height: 795px; }
+.content { margin-left: 237px; }
 
 /* decrease padding on content wells */
 .content well { padding: 10px; }

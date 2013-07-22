@@ -62,7 +62,10 @@ ul { list-style: none; margin: 0; }
 .widgets-listed li li.widgets-this-layer,
 #widgets-layer-visibility li.widgets-this-layer,
 #widgets-layer-visibility li.on { border-color: rgba(36, 43, 77, 0.8); }
+.features.summary-view .enabled.feature,
+.features.summary-view .disabled.feature { border-color: #eaeaea; }
 .widgets-listed li li.widgets-this-layer, #widgets-layer-visibility li.widgets-this-layer { background-color: #f5fafc; }
+li.category.content { margin-left: 0; min-height: 0; min-width: 0; margin-bottom: 0; padding-bottom: 0; border-left: 0; border-bottom: 0; box-shadow: none; }
 
 
 /* Buttons
@@ -146,6 +149,8 @@ select { width: auto; }
 
 /* input text styles */
 .bulk-actions input[type="text"],
+.search-actions input[type="text"],
+.manage input[type="text"],
 fieldset.publish-later-datetime input { margin-bottom: 0; }
 #main input.large.text,
 /* text area styles */
@@ -153,12 +158,15 @@ fieldset.publish-later-datetime input { margin-bottom: 0; }
 
 /* input hint styles */
 input[type="text"] + .hint,
-.permalink .hint { margin-top: -0.769em; }
-.hint:last-of-type { margin-bottom: 0.769em; }
+.permalink .hint { margin-top: -10px; }
+.hint:last-of-type { margin-bottom: 10px; }
 .hint { display: block; font-size: 0.846em; color: #7c7c7c; }
 
 /* label add required asterick */
 label.required:after { margin-left: 1ex; content: "*"; color: red; }
+
+/* display checkbox labels inline */
+label.forcheckbox { display: inline; }
 
 
 /* Headings
@@ -263,7 +271,7 @@ table.items tr:hover { background-color: #f5fafc; }
 /* Forms
 ----------------------------------------------------------*/
 
-label.forcheckbox { margin: 0 0 0 .4em; display: inline; }
+
 
 
 

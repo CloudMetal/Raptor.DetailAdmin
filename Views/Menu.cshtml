@@ -32,7 +32,7 @@
         if (firstLevelMenuItem == firstLevelMenuItems.Last()) {
             firstLevelMenuItem.Classes.Add("last");
         }
-        if (firstLevelMenuItem.Selected || (string)firstOfTheSecond.Href == Request.Path) {
+        if (firstLevelMenuItem.Selected || (firstOfTheSecond != null && (string)firstOfTheSecond.Href == Request.Path)) {
             firstLevelMenuItem.Classes.Add("active");
             isActive = true;
             if (hasChildren) {

@@ -55,6 +55,8 @@
 /* duplicating style for right arrow */
 #dashboard-menu a i.icon-chevron-right { position: relative; float: right; top: 5px; font-size: 11px; color: rgb(104, 104, 104); width: initial; height: initial; }
 
+/* remove bottom border and box shadow on active menu items with children */
+#dashboard-menu > li.no-bottom > a { border-bottom: 0; box-shadow: none; }
 
 /* Headings
 ----------------------------------------------------------*/

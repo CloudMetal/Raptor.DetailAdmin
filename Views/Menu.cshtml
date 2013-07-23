@@ -8,35 +8,80 @@
         IEnumerable<dynamic> secondLevelMenuItems = firstLevelMenuItem;
         var firstOfTheSecond = secondLevelMenuItems.FirstOrDefault();
 
+        // default hasChildren to false
+        var hasChildren = false;
+        
+        // default isActive to false
+        var isActive = false;
+        
+        // default dropdown arrow html to right
+        var dropdownArrow = @"<i class=""icon-chevron-right""></i>";
+        
+        // active arrow html
+        var activeArrow = @"<div class=""pointer""><div class=""arrow""></div><div class=""arrow_border""></div></div>";
+
+        // if first level menu item has children, set hasChildren to true
+        if (secondLevelMenuItems.Count(menuItem => !menuItem.LocalNav) > 1 || !firstLevelMenuItem.LinkToFirstChild) {
+            hasChildren = true;
+        }
+        
+        // add classes to first level menu item
         if (firstLevelMenuItem == firstLevelMenuItems.First()) {
             firstLevelMenuItem.Classes.Add("first");
         }
         if (firstLevelMenuItem == firstLevelMenuItems.Last()) {
             firstLevelMenuItem.Classes.Add("last");
         }
-        if (firstLevelMenuItem.Selected) {
+        if (firstLevelMenuItem.Selected || (firstOfTheSecond != null && (string)firstOfTheSecond.Href == Request.Path)) {
             firstLevelMenuItem.Classes.Add("active");
+            isActive = true;
+            if (hasChildren) {
+                // if first level menu item has children, change the dropdown arrow html to down
+                dropdownArrow = @"<i class=""icon-chevron-down""></i>";
+                // remove bottom border
+                firstLevelMenuItem.Classes.Add("no-bottom");
+            }
         }
 
+        // determine href for first level menu item
+        var firstLevelHref = "#";
+        
+        if (firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url))) {
+            firstLevelHref = (string)firstOfTheSecond.Href;
+        }
+        else if (firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url)) {
+            firstLevelHref = (string)firstLevelMenuItem.Href;
+        }
+
+        // create the markup string for the first level menu item link
+        IHtmlString sectionHeaderMarkup;
+        sectionHeaderMarkup = new HtmlString(string.Format(@"<a href=""{0}"" class=""{1}""><i class=""icon-{2}""></i><span>{3}</span>{4}{5}</a>", firstLevelHref, !isActive && hasChildren ? "dropdown-toggle" : string.Empty, MenuIcon.GetMenuIcon(firstLevelMenuItem.Text.Text.ToLowerInvariant()), firstLevelMenuItem.Text.Text, hasChildren ? dropdownArrow : string.Empty, isActive ? activeArrow : string.Empty));
+        
         var firstLevelTag = Tag(firstLevelMenuItem, "li");
         @firstLevelTag.StartElement
-            if (secondLevelMenuItems.Count(menuItem => !menuItem.LocalNav) > 1 || !firstLevelMenuItem.LinkToFirstChild) {
-                <a href="@(firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url)) ? (string)firstOfTheSecond.Href : firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url) ? (string)firstLevelMenuItem.Href : "#")" class="dropdown-toggle"><i class="icon-@MenuIcon.GetMenuIcon(firstLevelMenuItem.Text.Text.ToLowerInvariant())"></i><span>@firstLevelMenuItem.Text.Text</span><i class="icon-chevron-right"></i></a>
-                <ul class="submenu">
+            if (hasChildren) {
+                @sectionHeaderMarkup
+                <ul class="submenu" style="display: @(isActive ? "block !important" : "none");">
                     @{ var first = true;}
                     @foreach (var secondLevelMenuItem in secondLevelMenuItems.Where(menuItem => !menuItem.LocalNav)) {
                         if (first && firstLevelMenuItem.LinkToFirstChild) {
                             first = false;
                             continue;
                         }
-                        <li>
+
+                        if (secondLevelMenuItem.Selected) {
+                            secondLevelMenuItem.Classes.Add("active");
+                        }
+                        
+                        var secondLevelTag = Tag(secondLevelMenuItem, "li");
+                        @secondLevelTag.StartElement
                             <i class="icon-@MenuIcon.GetMenuIcon((secondLevelMenuItem.Text).ToString().ToLowerInvariant())"></i><a href="@secondLevelMenuItem.Href">@secondLevelMenuItem.Text</a>
-                        </li>
+                        @secondLevelTag.EndElement
                     }
                 </ul>
             }
             else {
-                <a href="@(firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url)) ? (string)firstOfTheSecond.Href : firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url) ? (string)firstLevelMenuItem.Href : "#")"><i class="icon-@MenuIcon.GetMenuIcon(firstLevelMenuItem.Text.Text.ToLowerInvariant())"></i><span>@firstLevelMenuItem.Text.Text</span></a>
+                @sectionHeaderMarkup
             }
         @firstLevelTag.EndElement
     }

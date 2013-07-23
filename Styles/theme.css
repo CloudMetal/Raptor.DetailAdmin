@@ -96,7 +96,7 @@ ul { list-style: none; margin: 0; }
 .features.summary-view .enabled.feature,
 .features.summary-view .disabled.feature { border-color: #eaeaea; }
 /* increase height of module container due to bulk actions */
-.features.summary-view .feature { height: 6.5em !important; }
+.features.summary-view .feature { height: auto !important; }
 .widgets-listed li li.widgets-this-layer,
 #widgets-layer-visibility li.widgets-this-layer { background-color: #f5fafc; }
 /* zero out all styles added by using content class */

@@ -120,6 +120,10 @@ legend { font-size: 1.385em; color: #696d73; font-style: italic; }
 /* reset width on select inputs */
 select { width: auto; }
 
+/* select styles */
+.select2-offscreen,
+.select2-offscreen:focus { height: 1px !important; border: 0 !important; padding: 0 !important; }
+
 /* checkbox styles */
 .checker { vertical-align: top !important; margin-right: 0 !important; }
 

@@ -2,55 +2,11 @@
 @using Raptor.DetailAdmin;
 @{
     IEnumerable<dynamic> firstLevelMenuItems = Model;
-
-    Model.Attributes.Add("role", "navigation");
-    var tag = Tag(Model, "ul");
 }
-<ul id="dashboard-menu" class="menu-admin menu">
+<ul id="dashboard-menu">
     @foreach (var firstLevelMenuItem in Model) {
         IEnumerable<dynamic> secondLevelMenuItems = firstLevelMenuItem;
-
-        string sectionHeaderText = firstLevelMenuItem.Text.Text;
-        string sectionHeaderTextHint = firstLevelMenuItem.Text.TextHint;
-        
-        // start font-awesome icon association
-        string sMenuIcon1 = MenuIcon.GetMenuIcon(sectionHeaderText.ToLowerInvariant());
-        // end font-awesome icon association
-        
         var firstOfTheSecond = secondLevelMenuItems.FirstOrDefault();
-
-        var itemClassName = HasText(sectionHeaderTextHint)
-            ? "navicon-" + sectionHeaderTextHint.HtmlClassify()
-            : "navicon";
-        var itemId = HasText(firstLevelMenuItem.IdHint)
-            ? "navicon-" + firstLevelMenuItem.IdHint
-            : null;
-
-        IHtmlString sectionHeaderMarkup;
-        if (firstOfTheSecond != null
-            && firstLevelMenuItem.LinkToFirstChild
-            && (
-                firstOfTheSecond.RouteValues != null
-                || HasText(firstOfTheSecond.Url))) {
-            sectionHeaderMarkup = HasText(itemId)
-                ? new HtmlString(string.Format(@"<a href=""{0}"" id=""{4}"" class=""{2}""><i class=""icon-{3}""></i><span>{1}</span></a>", (string)firstOfTheSecond.Href, sectionHeaderText, itemClassName, sMenuIcon1, itemId))
-                : new HtmlString(string.Format(@"<a href=""{0}"" class=""{2}""><i class=""icon-{3}""></i><span>{1}</span></a>", (string)firstOfTheSecond.Href, sectionHeaderText, itemClassName, sMenuIcon1));
-        }
-        else if (firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url)) {
-            sectionHeaderMarkup = HasText(itemId)
-                ? new HtmlString(string.Format(@"<a href=""{0}"" id=""{4}"" class=""{2}""><i class=""icon-{3}""></i><span>{1}</span></a>", (string)firstLevelMenuItem.Href, sectionHeaderText, itemClassName, sMenuIcon1, itemId))
-                : new HtmlString(string.Format(@"<a href=""{0}"" class=""{2}""><i class=""icon-{3}""></i><span>{1}</span></a>", (string)firstLevelMenuItem.Href, sectionHeaderText, itemClassName, sMenuIcon1));
-        }
-        else {
-            // if the header isn't linked and there are no children there's no reason for this item in the menu other than to look pretty
-            if (!secondLevelMenuItems.Any()) {
-                continue;
-            }
-
-            sectionHeaderMarkup = HasText(itemId)
-                ? new HtmlString(string.Format(@"<a href=""#""><i class=""icon-{2}""></i><span class=""{1}"" id=""{3}"">{0}</span></a>", Html.Encode(sectionHeaderText), Html.Encode(itemClassName), sMenuIcon1, Html.Encode(itemId)))
-                : new HtmlString(string.Format(@"<a href=""#""><i class=""icon-{2}""></i><span class=""{1}"">{0}</span></a>", Html.Encode(sectionHeaderText), Html.Encode(itemClassName), sMenuIcon1));
-        }
 
         if (firstLevelMenuItem == firstLevelMenuItems.First()) {
             firstLevelMenuItem.Classes.Add("first");
@@ -62,65 +18,26 @@
             firstLevelMenuItem.Classes.Add("active");
         }
 
-        if (HasText(sectionHeaderTextHint)) {
-            firstLevelMenuItem.Classes.Add("section-" + sectionHeaderTextHint.HtmlClassify());
-        }
-
         var firstLevelTag = Tag(firstLevelMenuItem, "li");
         @firstLevelTag.StartElement
-        @sectionHeaderMarkup
-        if (secondLevelMenuItems.Count(menuItem => !menuItem.LocalNav) > 1 || !firstLevelMenuItem.LinkToFirstChild) {
-        <ul class="submenu">
-            @{ var first = true;}
-            @foreach (var secondLevelMenuItem in secondLevelMenuItems.Where(menuItem => !menuItem.LocalNav)) {
-                if (first && firstLevelMenuItem.LinkToFirstChild) {
-                    first = false;
-                    continue;
-                }
-
-                string secondLevelTextHint = secondLevelMenuItem.Text.TextHint;
-                var firstOfTheThird = ((IEnumerable<dynamic>)secondLevelMenuItem.Items).FirstOrDefault();
-
-                var secondLevelItemClassName = HasText(secondLevelTextHint)
-                    ? "subnavicon-" + secondLevelTextHint.HtmlClassify()
-                    : "subnavicon";
-                var secondLevelItemId = HasText(secondLevelMenuItem.IdHint)
-                    ? "subnavicon-" + secondLevelMenuItem.IdHint
-                    : null;
-
-                if (secondLevelMenuItem.Selected) {
-                    firstLevelMenuItem.Classes.Add("active");
-                }
-
-                // start font-awesome icon association
-                string sMenuIcon2 = MenuIcon.GetMenuIcon((secondLevelMenuItem.Text).ToString().ToLowerInvariant());
-                // end font-awesome icon association
-                
-                var secondLevelTag = Tag(secondLevelMenuItem, "li");
-                var secondLevelUrl = secondLevelMenuItem.Href;
-                if (firstOfTheThird != null && secondLevelMenuItem.LinkToFirstChild && (firstOfTheThird.RouteValues != null || HasText(firstOfTheThird.Url))) {
-                    secondLevelUrl = firstOfTheThird.Href;
-                }                    
-                @secondLevelTag.StartElement
-                if (HasText(secondLevelItemId)) {
-                <i class="icon-@sMenuIcon2"></i><a href="@secondLevelUrl" class="@secondLevelItemClassName" id="@secondLevelItemId">@secondLevelMenuItem.Text</a>
-                }
-                else {
-                <i class="icon-@sMenuIcon2"></i><a href="@secondLevelUrl" class="@secondLevelItemClassName">@secondLevelMenuItem.Text</a>
-                }
-                @secondLevelTag.EndElement
+            if (secondLevelMenuItems.Count(menuItem => !menuItem.LocalNav) > 1 || !firstLevelMenuItem.LinkToFirstChild) {
+                <a href="@(firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url)) ? (string)firstOfTheSecond.Href : firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url) ? (string)firstLevelMenuItem.Href : "#")" class="dropdown-toggle"><i class="icon-@MenuIcon.GetMenuIcon(firstLevelMenuItem.Text.Text.ToLowerInvariant())"></i><span>@firstLevelMenuItem.Text.Text</span><i class="icon-chevron-right"></i></a>
+                <ul class="submenu">
+                    @{ var first = true;}
+                    @foreach (var secondLevelMenuItem in secondLevelMenuItems.Where(menuItem => !menuItem.LocalNav)) {
+                        if (first && firstLevelMenuItem.LinkToFirstChild) {
+                            first = false;
+                            continue;
+                        }
+                        <li>
+                            <i class="icon-@MenuIcon.GetMenuIcon((secondLevelMenuItem.Text).ToString().ToLowerInvariant())"></i><a href="@secondLevelMenuItem.Href">@secondLevelMenuItem.Text</a>
+                        </li>
+                    }
+                </ul>
             }
-        </ul>
-        }
+            else {
+                <a href="@(firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url)) ? (string)firstOfTheSecond.Href : firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url) ? (string)firstLevelMenuItem.Href : "#")"><i class="icon-@MenuIcon.GetMenuIcon(firstLevelMenuItem.Text.Text.ToLowerInvariant())"></i><span>@firstLevelMenuItem.Text.Text</span></a>
+            }
         @firstLevelTag.EndElement
     }
 </ul>
-@using (Script.Foot()) {
-    <script type="text/javascript">
-        //<![CDATA[
-        (function ($) {
-            $("@string.Format(".{0} a", string.Join(".", Model.Classes))").expandoControl(function (controller) { return controller.next(); }, { key: "N42", path: "@Url.Content("~/")" });
-    })(jQuery);
-    //]]>
-    </script>
-}

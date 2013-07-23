@@ -1,6 +1,6 @@
 ﻿$(function () {
     // set main content area to same height as dashboard menu
-    $('#main').css('min-height', height($('#dashboard-menu').height() - 50) + 'px');
+    $('#main').css('min-height', ($('#dashboard-menu').height() - 50) + 'px');
 
     // sidebar arrow injection
     $('#dashboard-menu > li.active > a').append('<div class="pointer"><div class="arrow"></div><div class="arrow_border"></div></div>');

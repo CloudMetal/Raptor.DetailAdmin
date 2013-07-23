@@ -2,9 +2,6 @@
     // set main content area to same height as dashboard menu
     $('#main').css('min-height', ($('#dashboard-menu').height() - 50) + 'px');
 
-    // sidebar arrow injection
-    $('#dashboard-menu > li.active > a').append('<div class="pointer"><div class="arrow"></div><div class="arrow_border"></div></div>');
-
     // bootstrap tab injection
     $('ul.localmenu > li.first').parent('ul').addClass('nav nav-tabs');
 
@@ -24,20 +21,19 @@
 });
 
 // sidebar menu dropdown toggle
-$("#dashboard-menu .dropdown-toggle").closest('li').hover(function (e) {
+$('#dashboard-menu .dropdown-toggle').closest('li').hover(function (e) {
     e.preventDefault();
     var $item = $(this);
-    $item.toggleClass("active");
-    if ($item.hasClass("active")) {
-        $item.find(".submenu").slideDown("fast");
-        $item.find(".icon-chevron-right").removeClass("icon-chevron-right").addClass("icon-chevron-down");
+    $item.toggleClass('active');
+    if ($item.hasClass('active')) {
+        $item.find('.submenu').slideDown('fast');
+        $item.find('.icon-chevron-right').removeClass('icon-chevron-right').addClass('icon-chevron-down');
     } else {
-        $item.find(".submenu").slideUp("fast");
-        $item.find(".icon-chevron-down").removeClass("icon-chevron-down").addClass("icon-chevron-right");
+        $item.find('.submenu').slideUp('fast');
+        $item.find('.icon-chevron-down').removeClass('icon-chevron-down').addClass('icon-chevron-right');
     }
 });
 
-// add arrow and dropdown functionality to side menu items with children-WOULD LIKE TO REWRITE THIS USING BOOTSTRAP DROPDOWN
 (function ($) {
     $(".bulk-actions-auto select").change(function () {
         $(this).closest("form").find(".apply-bulk-actions-auto:first").click();

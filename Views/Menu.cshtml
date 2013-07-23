@@ -7,8 +7,20 @@
     @foreach (var firstLevelMenuItem in Model) {
         IEnumerable<dynamic> secondLevelMenuItems = firstLevelMenuItem;
         var firstOfTheSecond = secondLevelMenuItems.FirstOrDefault();
-        <li>
-            @if (secondLevelMenuItems.Count(menuItem => !menuItem.LocalNav) > 1 || !firstLevelMenuItem.LinkToFirstChild) {
+
+        if (firstLevelMenuItem == firstLevelMenuItems.First()) {
+            firstLevelMenuItem.Classes.Add("first");
+        }
+        if (firstLevelMenuItem == firstLevelMenuItems.Last()) {
+            firstLevelMenuItem.Classes.Add("last");
+        }
+        if (firstLevelMenuItem.Selected) {
+            firstLevelMenuItem.Classes.Add("active");
+        }
+
+        var firstLevelTag = Tag(firstLevelMenuItem, "li");
+        @firstLevelTag.StartElement
+            if (secondLevelMenuItems.Count(menuItem => !menuItem.LocalNav) > 1 || !firstLevelMenuItem.LinkToFirstChild) {
                 <a href="@(firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url)) ? (string)firstOfTheSecond.Href : firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url) ? (string)firstLevelMenuItem.Href : "#")" class="dropdown-toggle"><i class="icon-@MenuIcon.GetMenuIcon(firstLevelMenuItem.Text.Text.ToLowerInvariant())"></i><span>@firstLevelMenuItem.Text.Text</span><i class="icon-chevron-right"></i></a>
                 <ul class="submenu">
                     @{ var first = true;}
@@ -26,6 +38,6 @@
             else {
                 <a href="@(firstOfTheSecond != null && firstLevelMenuItem.LinkToFirstChild && (firstOfTheSecond.RouteValues != null || HasText(firstOfTheSecond.Url)) ? (string)firstOfTheSecond.Href : firstLevelMenuItem.RouteValues != null || HasText(firstLevelMenuItem.Url) ? (string)firstLevelMenuItem.Href : "#")"><i class="icon-@MenuIcon.GetMenuIcon(firstLevelMenuItem.Text.Text.ToLowerInvariant())"></i><span>@firstLevelMenuItem.Text.Text</span></a>
             }
-        </li>
+        @firstLevelTag.EndElement
     }
 </ul>

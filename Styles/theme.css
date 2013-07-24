@@ -12,7 +12,8 @@
     9. List Items
     10. Icons
     11. Images
-    12. Dashboard
+    12. Pager
+    13. Dashboard
     
 */
 
@@ -83,6 +84,7 @@ h6 { font-size: 1em; }
 /* set all list styles to none and remove margin */
 ol,
 ul { list-style: none; margin: 0; }
+/* modify border color of module containers */
 .widgets-listed li li.widgets-this-layer:hover,
 #widgets-layer-visibility li:hover,
 .widgets-listed li:hover,
@@ -90,9 +92,14 @@ ul { list-style: none; margin: 0; }
 .widgets-listed li li.widgets-this-layer,
 #widgets-layer-visibility li.widgets-this-layer,
 #widgets-layer-visibility li.on { border-color: rgba(36, 43, 77, 0.8); }
+/* modify border color of module containers */
 .features.summary-view .enabled.feature,
 .features.summary-view .disabled.feature { border-color: #eaeaea; }
-.widgets-listed li li.widgets-this-layer, #widgets-layer-visibility li.widgets-this-layer { background-color: #f5fafc; }
+/* increase height of module container due to bulk actions */
+.features.summary-view .feature { height: auto !important; }
+.widgets-listed li li.widgets-this-layer,
+#widgets-layer-visibility li.widgets-this-layer { background-color: #f5fafc; }
+/* zero out all styles added by using content class */
 li.category.content { margin-left: 0; min-height: 0; min-width: 0; margin-bottom: 0; padding-bottom: 0; border-left: 0; border-bottom: 0; box-shadow: none; }
 
 
@@ -112,6 +119,10 @@ legend { font-size: 1.385em; color: #696d73; font-style: italic; }
 
 /* reset width on select inputs */
 select { width: auto; }
+
+/* select styles */
+.select2-offscreen,
+.select2-offscreen:focus { height: 1px !important; border: 0 !important; padding: 0 !important; }
 
 /* checkbox styles */
 .checker { vertical-align: top !important; margin-right: 0 !important; }
@@ -287,6 +298,18 @@ table.items tr:hover { background-color: #f5fafc; }
 }
 
 
+/* Pager
+----------------------------------------------------------*/
+.pager { margin: 0; }
+.pager li > a { -webkit-border-radius: inherit; -moz-border-radius: inherit; border-radius: inherit; }
+.pager li > a.active:hover { color: #3b9ff3 !important; }
+.pagination { margin: 0; }
+.pagination ul > li:last-child > a,
+.pagination ul > li:last-child > span,
+.pagination ul > li:first-child > a,
+.pagination ul > li:first-child > span { font-size: 12px; padding: 2px 12px; }
+.page-size-options { float: left; padding-right: 40px; margin-left: auto; }
+.page-size-options select { padding: 0; }
 
 
 

@@ -122,3 +122,10 @@
     </div>
 }
 <!-- end footer -->
+@using (Script.Foot()) {
+<script type="text/javascript">
+//<![CDATA[
+    var confirmRemoveMessage = '@T("Are you sure you want to remove this element ?")';
+//]]>
+</script>
+}

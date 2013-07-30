@@ -2,6 +2,6 @@
 @if (Model.CurrentUser != null) {
     <ul class="nav pull-right">
         <li class="dropdown"><a href="#" class="dropdown-toggle"><i class="icon-user"></i>&nbsp;@Html.ItemDisplayText((Orchard.ContentManagement.IContent)Model.CurrentUser)<b class="caret"></b></a></li>
-        <li class="settings"><a href="@Url.Action("Logout", new { Area = "Orchard.Users", Controller = "Account" })" title="Logout"><i class="icon-share-alt"></i></a></li>
+        <li class="settings"><a href="@Url.Action("LogOff", new { Area = "Orchard.Users", Controller = "Account" })" title="Logout"><i class="icon-share-alt"></i></a></li>
     </ul>
 }

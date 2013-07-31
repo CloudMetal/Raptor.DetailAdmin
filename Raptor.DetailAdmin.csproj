@@ -190,6 +190,25 @@
     <Content Include="Views\Pager.Next.cshtml" />
     <Content Include="Views\Pager.Previous.cshtml" />
   </ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pager.First.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pager.Gap.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pager.Last.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pager.Next.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pager.Previous.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Orchard.Workflows\Admin\EditActivity.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

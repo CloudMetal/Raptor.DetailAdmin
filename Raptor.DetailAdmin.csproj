@@ -190,7 +190,6 @@
     <Content Include="Views\Pager.Next.cshtml" />
     <Content Include="Views\Pager.Previous.cshtml" />
   </ItemGroup>
-  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Pager.First.cshtml" />
   </ItemGroup>
